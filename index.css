@@ -1,0 +1,16 @@
+body {
+  font-family: "Work Sans", sans-serif;
+}
+
+#hero {
+  background: url(./images/product.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Add the blur effect */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  height: 100vh;
+  z-index: -2;
+  font-family: "Work Sans", sans-serif;
+}
