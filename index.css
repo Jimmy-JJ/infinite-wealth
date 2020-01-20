@@ -3,10 +3,12 @@ body {
 }
 
 #hero {
-  background: url(./images/product.svg);
+  /* background: url(./images/product.svg); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  /* background-color: #5556a1; */
+
   /* Add the blur effect */
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
