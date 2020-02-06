@@ -1,4 +1,5 @@
-body {
+body,
+.nav-link {
   font-family: "Work Sans", sans-serif;
 }
 
@@ -15,4 +16,9 @@ body {
   height: 100vh;
   z-index: -2;
   font-family: "Work Sans", sans-serif;
+}
+#img {
+  display: block;
+  max-width: 200%;
+  height: 370px;
 }
