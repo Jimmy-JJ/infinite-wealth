@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+
+    <nav class="container navbar navbar-expand-lg navbar-light bg-white" id="navbarNav">
+        <a class="nav-link active" href="#"><img src="images/logo.svg" style="height: 25px;" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto" style="font-family:work sans; font-weight:500;">
+                <li class="nav-item active">
+                    <a class="nav-link btn-outline-light badge-pill" href="index.html" style=" color:#5556A1;">Home<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item pl-4">
+                    <a class="nav-link btn-outline-light badge-pill" href="about.html" style="color:#5556A1;">About</a>
+                </li>
+                <li class="nav-item pl-4">
+                    <a class="nav-link btn-outline-light badge-pill" href="contact.html"
+                        style="color:#5556A1;">Contact</a>
+                </li>
+                <li class="nav-item pl-4">
+                    <a class="nav-link disabled" href="#" aria-disabled="true" style="color:#5EA513;">
+                        Order +234(0) 8032386867</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="hero" class="container-fluid  align-items-center justify-content-start text-white my-sm-4">
+        <div class="row absolute w-100">
+            <div class="col-md-10 mx-auto">
+                <div class="row justify-content-around">
+                    <div class="col-md-6" style="color: #5556A1;">
+
+
+                        <a href="index.html" class="text" style="color:#5556A1;">
+                            <h4 style="font-weight: bold;">Back</h4>
+                        </a>
+
+                        <form class="mt-md-4 shadow p-2 mb-5 bg-white rounded">
+                            <div class="form-group">
+                                <div class="px-3">
+                                    <label>Full Name</label>
+                                    <input type="name" class="form-control" placeholder="Maria Joseph">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="px-3">
+                                    <label>Phone</label>
+                                    <input type="tel" id="phoneNumber" class="form-control"
+                                        placeholder="+470 (1) 245 589 245">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="px-3">
+                                    <label>Email Address</label>
+                                    <input type="email" id="email" class="form-control"
+                                        placeholder="mariajoseph@mail.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="px-3">
+                                    <label>State of Residence</label>
+                                    <input type="text" class="form-control" placeholder="North">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="px-3">
+                                    <label>Contact Address</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    </form>
+
+
+                    <div class="col-10 col-md-4 ml-md-5 shadow p-2 mb-5 bg-white rounded">
+                        <div class=" text-center px-0 py-4">
+                            <img src="images/Hibiscus.svg" class="img-fluid mt-3" alt="Responsive image">
+
+                            <div style="color:#5556A1;">
+
+                                <div class="text-center">
+                                    <h6 class="font-weight-bold">Hibiscus Powder</h6>
+                                    <p class="small">
+                                        Friendly power herbs, digestion medicinal, food seasoning,
+                                        soothing
+                                    </p>
+
+                                </div>
+
+                                <div class="d-flex flex-row px-4 mt-4 border-bottom" style="font-size: .85rem;">
+                                    <p class="w-100 my-auto">Hibicus Powder</p>
+                                    <p class="w-100 text-right my-auto">N <span id="amount">14000</span></p>
+                                </div>
+
+
+
+                                <div class="d-flex flex-row  mt-4 border-bottom" style="font-size: .85rem;">
+                                    <p class="w-100 my-auto">Quantity</p>
+                                    <div class="w-100 text-right my-auto mx-3">
+
+
+                                        <input style="width:70px" value="0" type="number" name="" id="multiplier">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-row mt-4 mr-md-4" style="font-size: .85rem;">
+                                    <p class="w-100 my-auto font-weight-bold">Total</p>
+                                    <p class="w-100 text-right my-auto ml-5">N 14000</p>
+                                </div>
+
+                                <div class="text-center ml-md-4">
+                                    <button class="btn btn-primary mt-md-3" type="button" onclick="payNow()">
+                                        Pay now
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <script>
+        const payNow = () => {
+            let email = document.querySelector("#email").value;
+            let amount = document.querySelector("#amount").textContent;
+            let multiplier = document.querySelector("#multiplier").value;
+
+            let newAmount = amount * multiplier;
+
+            payWithPaystack(email, newAmount);
+
+        }
+
+        const payWithPaystack = (email, amount) => {
+            console.log(amount);
+            var handler = PaystackPop.setup({
+                key: 'pk_test_d55e96dfbc9c8554ec764355bbb659d1c4a56208',
+                email: email,
+                amount: amount,
+                currency: "NGN",
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: "Mobile Number",
+                            variable_name: "mobile_number",
+                            value: "+2348012345678"
+                        }
+                    ]
+                },
+                callback: function (response) {
+                    alert('success. transaction ref is ' + response.reference);
+                },
+                onClose: function () {
+                    alert('window closed');
+                }
+            });
+            handler.openIframe();
+        }
+    </script>
+
+</body>
+
+</html>
