@@ -22,3 +22,17 @@ body,
   max-width: 200%;
   height: 370px;
 }
+
+.w-custom {
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .top {
+    margin-top: -60px;
+  }
+
+  .w-custom {
+    width: 50%;
+  }
+}
